@@ -1,11 +1,17 @@
-# Hospital Scheduling Service
+<h1 align="center">🏥 Hospital Scheduling Service</h1>
+<p align="center">Fundação de um backend hospitalar com JPA, DTOs e migrations.</p>
+<p align="center">
+  <img src="https://img.shields.io/badge/Java-21-2563EB?style=flat-square" alt="Java: 21">
+  <img src="https://img.shields.io/badge/Spring%20Boot-4.1.0-0F766E?style=flat-square" alt="Spring Boot: 4.1.0">
+  <img src="https://img.shields.io/badge/Banco-PostgreSQL-475569?style=flat-square" alt="Banco: PostgreSQL">
+  <img src="https://img.shields.io/badge/Status-Em%20desenvolvimento-475569?style=flat-square" alt="Status: Em desenvolvimento">
+</p>
 
-![Java](https://img.shields.io/badge/Java-21-orange)
-![Spring Boot](https://img.shields.io/badge/Spring%20Boot-4.1.0-6DB33F)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-18-4169E1)
-![Maven](https://img.shields.io/badge/Maven-Wrapper-C71A36)
-![Status](https://img.shields.io/badge/status-em%20desenvolvimento-yellow)
-![Licença](https://img.shields.io/badge/licen%C3%A7a-n%C3%A3o%20definida-lightgrey)
+<p align="center"><a href="#visão-geral">Visão geral</a> · <a href="#funcionalidades">Funcionalidades</a> · <a href="#como-executar-sem-docker">Execução</a> · <a href="#testes">Testes</a></p>
+
+---
+
+## Visão geral
 
 API backend para o domínio hospitalar, iniciada como projeto prático de revisão de Spring Boot e base para as próximas entregas da pós-graduação na FIAP.
 
@@ -13,7 +19,7 @@ O checkpoint atual concentra a fundação do cadastro de pacientes: persistênci
 
 ## Funcionalidades
 
-- ✅ conexão da aplicação com PostgreSQL local;
+- ✅ driver PostgreSQL e instruções de configuração local;
 - ✅ migration inicial da tabela `patients` com Flyway;
 - ✅ entidade `Patient` com identidade UUID e auditoria de criação e atualização;
 - ✅ repositório com Spring Data JPA;
@@ -109,7 +115,7 @@ No Windows:
 No Linux ou macOS:
 
 ```bash
-./mvnw spring-boot:run
+bash ./mvnw spring-boot:run
 ```
 
 Com a aplicação iniciada, o servidor HTTP fica disponível em `http://localhost:8080`.
@@ -120,7 +126,7 @@ Ainda não há `Dockerfile` nem `compose.yaml` neste checkpoint. A execução at
 
 ## Endpoints
 
-Ainda não há endpoints HTTP expostos. O próximo incremento será o cadastro de pacientes, passando por controller, service e repository e devolvendo `PatientResponseDto`.
+Ainda não há endpoints de negócio implementados. Spring Security está nas dependências, mas as regras de autenticação e autorização ainda precisam ser definidas. O próximo incremento será o cadastro de pacientes, passando por controller, service e repository e devolvendo `PatientResponseDto`.
 
 | Método | Rota planejada | Descrição | Status |
 | --- | --- | --- | --- |
@@ -130,13 +136,15 @@ Os exemplos de requisição e resposta serão incluídos quando o contrato HTTP 
 
 ## Testes
 
-Execute a suíte com:
+Com o banco configurado, execute:
 
-```powershell
-.\mvnw.cmd test
+```bash
+bash ./mvnw test
 ```
 
-No estado atual, a suíte valida a inicialização do contexto Spring. Os próximos incrementos devem adicionar:
+No Windows: `.\mvnw.cmd test`.
+
+No estado atual, há um teste de inicialização do contexto Spring. Ele depende da configuração local de banco descrita acima. Os próximos incrementos devem adicionar:
 
 - testes unitários das regras no service;
 - testes de integração dos endpoints;
@@ -162,7 +170,7 @@ No estado atual, a suíte valida a inicialização do contexto Spring. Os próxi
 
 ## Autor
 
-Vinícius Oliveira — [GitHub](https://github.com/vineog23-boop)
+**Vinícius Oliveira** · [GitHub](https://github.com/vineog23-boop) · [LinkedIn](https://www.linkedin.com/in/vinícius-oliveira-1770b7306)
 
 ## Licença
 
